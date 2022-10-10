@@ -4,26 +4,21 @@ import Buttons from "./components/Button";
 import Input from "./components/input";
 
 const App = () => {
- const [notificationNumber, setNotificationNumber] = useState(0);
+ const [isLoggedIn, setIsLoggedIn] = useState(false);
 
- return (
-  <>
+ if (isLoggedIn) {
+  return (
    <Card>
-    <p>Hello this paren component</p>
-    <Buttons isActive={false} />
+    <Buttons isActive={true} title="Logout" />{" "}
    </Card>
-   {notificationNumber >= 1 ? (
-    <Card>
-     <p>
-      You have {notificationNumber} new notification
-      {notificationNumber === 1 ? "" : "s"}
-     </p>
-    </Card>
-   ) : (
-    <Card>No notification</Card>
-   )}
-  </>
- );
+  );
+ } else {
+  return (
+   <Card>
+    <Buttons isActive={true} title="Login" />
+   </Card>
+  );
+ }
 };
 
 export default App;
