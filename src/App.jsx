@@ -5,20 +5,15 @@ import Input from "./components/input";
 
 const App = () => {
  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
- if (isLoggedIn) {
-  return (
-   <Card>
-    <Buttons isActive={true} title="Logout" />{" "}
-   </Card>
-  );
- } else {
-  return (
-   <Card>
+ return (
+  <Card>
+   {isLoggedIn ? (
+    <Buttons isActive={true} title="Logout" />
+   ) : (
     <Buttons isActive={true} title="Login" />
-   </Card>
-  );
- }
+   )}
+  </Card>
+ );
 };
 
 export default App;
