@@ -1,31 +1,36 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import React, { useRef, useEffect } from "react";
+// import styled from "styled-components";
 
 const Button = () => {
- const [count, setCount] = useState(0);
- useEffect(() => { 
-  document.title = `You clicked ${count} times`
- }, [count])
+ const myRef = useRef(null);
+
+ useEffect(() => {
+  if (myRef) {
+   console.log("myRef", myRef.current);
+  }
+ });
 
  return (
   <>
-   <MyButton onClick={() => setCount(count + 1)}>{`Clicked ${count} times`}</MyButton>
+   <button onClick={() => alert("You clicked")} ref={myRef}>
+    Click
+   </button>
   </>
  );
 };
 
 export default Button;
 
-const MyButton = styled.button`
- background: ${(props) =>
-  props.disabled
-   ? "grey"
-   : "linear-gradient(91.4deg, #2fb8ff 0%, #9eecd9 100%)"};
- padding: 12px 0;
- width: 200px;
- border: none;
- border-radius: 30px;
- color: white;
- font-weight: bold;
- font-family: Segoe UI, sans-serif;
-`;
+// const MyButton = styled.button`
+//  background: ${(props) =>
+//   props.disabled
+//    ? "grey"
+//    : "linear-gradient(91.4deg, #2fb8ff 0%, #9eecd9 100%)"};
+//  padding: 12px 0;
+//  width: 200px;
+//  border: none;
+//  border-radius: 30px;
+//  color: white;
+//  font-weight: bold;
+//  font-family: Segoe UI, sans-serif;
+// `;
