@@ -2,16 +2,31 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Buttons from "./components/Button";
 import Input from "./components/input";
+import NavigationButtons from "./components/NavigationButton";
 
 const App = () => {
- const [isLoggedIn, setIsLoggedIn] = useState(false);
+ const data = [
+  {
+   title: "Courses",
+   image: "https://designcode.io/images/icons/courses.svg",
+  },
+  {
+   title: "Tutorials",
+   image: "https://designcode.io/images/icons/tutorials.svg",
+  },
+  {
+   title: "Livestreams",
+   image: "https://designcode.io/images/icons/livestreams.svg",
+  },
+  {
+   title: "Pricing",
+   image: "https://designcode.io/images/icons/pricing.svg",
+  },
+ ];
+
  return (
   <Card>
-   {isLoggedIn ? (
-    <Buttons isActive={true} title="Logout" />
-   ) : (
-    <Buttons isActive={true} title="Login" />
-   )}
+   <NavigationButtons data={data} />
   </Card>
  );
 };
@@ -20,12 +35,11 @@ export default App;
 
 const Card = styled.div`
  padding: 20px 30px;
- background: rgb(192, 77, 0, 0.12);
+ background: linear-gradient(45deg, lightblue,pink);
  border-radius: 25px;
  display: flex;
  flex-direction: column;
  justify-content: center;
  align-items: center;
- width: 300px;
  margin: 15px;
 `;
