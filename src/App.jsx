@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Buttons from "./components/Button";
 import Input from "./components/input";
 import NavigationButtons from "./components/NavigationButton";
-
+import FetchData from "./components/FetchData";
 const App = () => {
  const data = [
   {
@@ -25,9 +25,14 @@ const App = () => {
  ];
 
  return (
-  <Card>
-   <NavigationButtons data={data} />
-  </Card>
+  <>
+   <Card>
+    <NavigationButtons datas={data} />
+   </Card>
+   <Card>
+    <FetchData />
+   </Card>
+  </>
  );
 };
 
@@ -35,7 +40,7 @@ export default App;
 
 const Card = styled.div`
  padding: 20px 30px;
- background: linear-gradient(45deg, lightblue,pink);
+ background: linear-gradient(45deg, lightblue, pink);
  border-radius: 25px;
  display: flex;
  flex-direction: column;

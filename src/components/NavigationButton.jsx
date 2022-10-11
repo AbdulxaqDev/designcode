@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-export default function NavigationButtons({ data }) {
+export default function NavigationButtons({ datas }) {
+ const [rotate, setRotate] = useState(false);
+
  return (
-  <Wrapper>
-   {data.map((data, i) => (
-    <MyNavigationButton>
+  <Wrapper onMouseEnter={() => setRotate(false)} onMouseLeave={() => setRotate(true)} >
+   {datas.map((data, i) => (
+    <MyNavigationButton rotateButton={rotate} key={i}>
      <img src={data.image} alt="" />
      <p>{data.title}</p>
     </MyNavigationButton>
@@ -18,6 +20,9 @@ const Wrapper = styled.div`
  display: flex;
  justify-content: center;
  align-items: center;
+ width: 100%;
+ height: 100%;
+ margin: -20px -30px;
 `;
 
 const MyNavigationButton = styled.div`
@@ -31,10 +36,13 @@ const MyNavigationButton = styled.div`
  font-family: "Tahoma";
  color: whitesmoke;
  user-select: none;
- & img{
+ box-shadow: 0 0 10px lightblue;
+ & img {
   margin-right: 10px;
  }
- &:active{
-  transform: scale(1.01)
+ &:active {
+  transform: scale(1.01);
  }
+ transform: ${({rotateButton}) => rotateButton? "rotateX(90deg)" : "rotateX(0)" };
+ transition: 0.4s;
 `;
