@@ -4,6 +4,8 @@ import Buttons from "./components/Button";
 import Input from "./components/input";
 import NavigationButtons from "./components/NavigationButton";
 import FetchData from "./components/FetchData";
+import Form from "./components/Form";
+
 const App = () => {
  const data = [
   {
@@ -31,6 +33,9 @@ const App = () => {
    </Card>
    <Card>
     <FetchData />
+   </Card>
+   <Card>
+    <Form />
    </Card>
   </>
  );
